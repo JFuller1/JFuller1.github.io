@@ -1,0 +1,234 @@
+@charset "utf-8";
+@import "base.css";
+
+/* - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - Heading - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - */
+
+header
+{
+    background-color: #229dfa;
+    height: 75px;
+}
+
+.row
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title
+{
+    margin-right: 15px;
+}
+
+header h1
+{
+    
+    line-height: 75px;
+    color: #fff;
+    display: inline;
+}
+
+header div .searchbar
+{
+    margin: 15px 0px;
+    line-height: 45px;
+    border-radius: 25px;
+    background-color: #0574c9;
+    color: rgb(220, 220, 220);
+    display: flex;
+    justify-content: space-between;
+    width: 27%;
+}
+
+header div .searchbar input
+{
+    background: transparent;
+    margin-left: 25px;
+    color: rgb(220, 220, 220);
+    font-size: 20px;
+}
+
+header div .searchbar input::placeholder
+{
+    color: rgb(220, 220, 220);
+    font-size: 20px;
+}
+
+header ul
+{
+    list-style: none;
+}
+
+header ul li
+{
+    display: inline;
+}
+
+header ul li a
+{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    line-height: 75px;
+    transition: color 0.5s;
+}
+
+header ul li + li
+{
+    margin-left: 25px;
+}
+
+header ul li a:hover
+{
+    color: #888;
+}
+
+/* - - - - - - - - - - - - - - - - - */
+/* - - - - - - - Main - - - - - - - -*/
+/* - - - - - - - - - - - - - - - - - */
+
+body
+{
+    background-color: rgb(240, 240, 240);
+}
+
+main h2
+{
+    font-weight: 500;
+    margin-top: 50px;
+}
+
+/* - - - - - - - - - - - - - - - - - */
+/* - - - - - - - Table - - - - - - - */
+/* - - - - - - - - - - - - - - - - - */
+
+table
+{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+tr + tr
+{
+    height: 65px;
+    background-color: #fff;
+    box-shadow: 1px 1px 8px rgba(84, 84, 84, 0.2);
+    border-radius: 15px; /*Border radius to curve box shadow*/
+    color: #444;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+td
+{
+    line-height: 65px;
+}
+
+/* Source: https://dev.to/temmietope/rounded-edges-on-table-rows-1d0n */
+td:first-child
+{
+    border-radius: 15px 0 0 15px;
+}
+
+td:last-child
+{
+    border-radius: 0 15px 15px 0;
+}
+
+th
+{
+    text-align: left;
+    color: #777;
+    font-weight: 600;
+    height: 60px;
+    line-height: 60px;
+}
+
+.icon
+{
+    width: 10%;
+    padding-left: 25px;
+}
+
+.circle
+{
+    border-radius: 50%;
+    padding: 15px 19px;
+}
+
+.users
+{
+    background-color: rgba(69, 121, 199, 0.2);
+    color: rgb(100, 139, 207);
+}
+
+.articles
+{
+    background-color: #ffb8c385;
+    color: #ff6a80;
+}
+
+.authors
+{
+    background-color: #bcf5bc9f;
+    color: #64e764;
+}
+
+.messages
+{
+    background-color: #eac6eaa1;
+    color: #d07ad0;
+}
+
+.visits
+{
+    background-color: #f7f7bb9a;
+    color: #ebeb3b;
+}
+
+.data-type
+{
+    width: 25%;
+}
+
+.total
+{
+    width: 15%;
+}
+
+.last-days
+{
+    width: 15%;
+}
+
+.record
+{
+    width: 15%;
+}
+
+.show-more
+{
+    width: 20%;
+    text-align: right;
+    padding-right: 25px;
+}
+
+.show
+{
+    background-color: rgb(235, 235, 235);
+    height: 45px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #777;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.show:hover
+{
+    background-color: #777;
+    color: rgb(235, 235, 235);
+}
