@@ -110,9 +110,12 @@
     .spacing {flex: 0 0 25%; padding-top: 0px;}
     .row-3 {height: 40vh;}
     .column {height: 40vh;}
+    .column img{height: 40vh;}
 
     .row-2 {flex-direction: row; align-items: flex-start; height: 80vh;}
     .form-area {height: 110vh;}
     .col {max-width: calc(50% - 5vh); padding: 5vh; height: 80vh ;}
     .col:last-child {margin-top: 0;}
+
+
 }
