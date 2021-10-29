@@ -1,0 +1,32 @@
+.about
+{
+    height: 45vh;
+    width: 100%;
+    padding-top: 8.5vh;
+    background-image: linear-gradient(135deg, #449dd1d7 0%, #449dd193 100%), url('../img/building.png');
+    background-position: right 45%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.about h3
+{
+    padding-left: 15px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.about hr
+{
+    width: 220px;
+    margin: 10px 0 20px 15px;
+    border-top: 3px solid #fff;
+}
+
+.about p
+{
+    padding-left: 15px;
+    font-size: 16px;
+    color: #fff;
+    max-width: 700px;
+}

@@ -1,0 +1,166 @@
+.form-area
+{
+    height: 110vh;
+    padding: 15vh 0;
+    /* background-color: #78b6d9; */
+    background-image: linear-gradient(135deg, #78b5d9ef 0%,  #78b6d9ef 100%), url('../img/background.jpg');
+}
+
+.col
+{
+    padding: 5vh;
+    height: 80vh;
+}
+
+.header
+{
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 5vh;
+    color: #333;
+}
+
+.hr
+{
+    width: 140px;
+    margin: 20px 0;
+    border-bottom: #449DD1 solid 3px;
+    margin: 15px auto 5vh;
+}
+
+.seperator
+{
+    width: 80%;
+    margin: 5vh auto;
+    border-bottom: rgba(0, 0, 0, .2) solid;
+}
+
+
+.col input[type="text"]
+{
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+    padding-left: 10px;
+    border: transparent 2px solid;
+    transition: border .5s;
+}
+
+.col input[type="text"]:focus
+{
+    border: 2px solid #449DD1;
+}
+
+.col input[type="email"]
+{
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+    padding-left: 10px;
+    border: transparent 2px solid;
+    transition: border .5s;
+}
+
+.col input[type="email"]:focus
+{
+    border: 2px solid #449DD1;
+}
+
+.col textarea
+{
+    width: 100%;
+    height: 200px;
+    resize: none;
+    border-radius: 10px;
+    border: transparent 2px solid;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    transition: border .5s;
+}
+
+.col textarea:focus
+{
+    border: 2px solid #449DD1;
+}
+
+input[type="text"]:valid, input[type="email"]:valid, textarea:valid
+{
+    background: rgba(0, 0, 0, 0.05) url(../img/checkmark.png) no-repeat 98% center;
+    background-size: 12px 12px;
+}
+
+input[type="submit"]
+{
+    width: 130px;
+    height: 50px;
+    border-radius: 30px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    border: rgba(0, 0, 0, 0.082) 2px solid;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #449DD1;
+    color: #fff;
+    cursor: pointer;
+    transition: all .5s;
+
+    display: block;
+    margin: 5vh auto;
+}
+
+input[type="submit"]:hover
+{
+    background-color: #27739f;
+}
+
+.header-2
+{
+    height: 7vh;
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+.icons
+{
+    height: calc(50% - 10vh);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.icons i
+{
+    font-size: 50px;
+    transition: all .5s;
+    cursor: pointer;
+    color: #333;
+}
+
+.icons i:hover
+{
+    color: #449DD1;
+}
+
+.email
+{
+    font-size: 20px;
+    transition: all .5s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.email:hover
+{
+    color: #449DD1;
+}
+
+.more-txt
+{
+    margin-top: 5vh;
+    text-align: center;
+}
