@@ -103,6 +103,32 @@ input[type="text"]:valid, input[type="email"]:valid, textarea:valid
     background-size: 12px 12px;
 }
 
+form ul
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    margin-bottom: 10px;
+}
+
+form ul li + li
+{
+    margin-left: 70px;
+}
+
+form ul li a
+{
+    color: #74c9e8;
+    transition: .5s color;
+    line-height: 0;
+    font-size: 45px;
+}
+
+form ul li a:hover
+{
+    color: #42b6df;
+}
+
 main 
 {
     display: flex;
@@ -128,6 +154,7 @@ main img
     main form {width: auto}
     main h2 {font-size: 20px;}
     .container {width: 90%;}
+    form ul li a {font-size: 30px;}
 }
 
 @media screen and (min-width: 580px)
@@ -136,6 +163,7 @@ main img
     main form {width: auto}
     main h2 {font-size: 24px;}
     .container {width: 90%;}
+    form ul li a {font-size: 45px;}
 }
 
 @media screen and (min-width: 768px)
@@ -144,6 +172,7 @@ main img
     main form {width: auto}
     main h2 {font-size: 24px;}
     .container {width: 80%;}
+    form ul li a {font-size: 45px;}
 }
 
 @media screen and (min-width: 1024px)
@@ -153,6 +182,7 @@ main img
     main img {padding-left: 50px; width: 450px;}
     main h2 {font-size: 24px;}
     .container {width: 80%;}
+    form ul li a {font-size: 45px;}
 } 
 
 @media screen and (min-width: 1444px)
@@ -162,4 +192,5 @@ main img
     main img {padding-left: 0; width: 500px;}
     main h2 {font-size: 24px;}
     .container {width: 80%;}
+    form ul li a {font-size: 45px;}
 }
