@@ -1,0 +1,60 @@
+@import "base.css";
+
+main 
+{
+    height: 400px;
+    background-color: #f3f4f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+main::before
+{
+    position: absolute;
+    width: 160px;
+    /* top: 50%;
+    left: 50%; */
+    content: "";
+    height: 160px;
+    background-color: rgba(0, 177, 106, .25) ;
+    transform-origin: center center;
+
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate
+{
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);}
+    100% {transform: rotate(360deg);}
+}
+
+main::after
+{
+    position: absolute;
+    width: 160px;
+    /* top: 50%;
+    left: 50%; */
+    content: "";
+    height: 160px;
+    background-color: rgba(0, 177, 106, .25) ;
+    transform-origin: center center;
+
+    animation: rotate 5s linear infinite reverse;
+}
+
+.heading h2
+{
+    text-align: center;
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: -.2px;
+    color: #232629;
+    text-shadow: 0 .3px 0 #000;
+    z-index: 1;
+}
+

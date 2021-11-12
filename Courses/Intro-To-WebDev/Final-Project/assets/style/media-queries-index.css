@@ -57,15 +57,15 @@
     .overlay h2 {font-size: 40px;}
     .landing-img {background-position:-600px 0;}
 
-    .row {height: 28vh; flex-direction: row; overflow: scroll; overflow-y: hidden;}
-    .column {height: 28vh;}
-    .description h3 {margin: 2vh 0; font-size: 18px; text-align: left;}
+    .row {height: 100%; flex-direction: column; overflow: visible;}
+    .column {height: 60vh;}
+    .description h3 {margin: 25px 0; font-size: 15px; text-align: center;}
     .description hr {display: none;}
-    .description p {font-size: 16px; padding-bottom: 0;}
-    .description li {font-size: 16px; display: none;}
-    .description {min-width: 450px; max-width: 450px; border-width: 2px 2px 2px 0; margin: 0 30px 0 0;}
-    .description:last-child {margin-right: 0;}
-    .header-hr {width: 400px;}
+    .description p {font-size: 16px; padding-bottom: 25px}
+    .description li {font-size: 12px; display: none;}
+    .description {max-width: 60vh; border-width: 0 2px 2px 2px; margin: 0 auto 4vh;}
+    .description:last-child {margin-right: auto;}
+    .header-hr {width: 200px;}
 
     .about-me-preview .para {width: 50%;}
 }

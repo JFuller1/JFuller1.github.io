@@ -39,14 +39,21 @@ nav
     line-height: 5vh;
     display: flex;
     justify-content: center;
-    color: #fff;
+    color: #e5e5e5;
     cursor: pointer;
     transition: all .5s;
+    animation: arrow 7s linear infinite;
 }
 
 .arrow i:hover
 {
-    color: #b8e3f3;
+    color: #fff;
+}
+
+@keyframes arrow
+{
+    0%, 20% ,100% {transform: translateY(0);}
+    10% {transform: translateY(-5px);}
 }
 
 .overlay button

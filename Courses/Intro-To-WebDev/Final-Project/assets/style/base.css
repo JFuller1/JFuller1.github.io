@@ -160,6 +160,8 @@ footer ul li + li
     footer div {justify-content: center;}
 
     .title h2 {font-size: 56px;}
+
+    .container {width: 90%;}
 }
 
 @media screen and (min-width: 580px)
@@ -171,6 +173,8 @@ footer ul li + li
     footer div {justify-content: space-between;}
 
     .title h2 {font-size: 78px;}
+
+    .container {width: 80%;}
 }
 
 @media screen and (min-width: 768px)
@@ -182,6 +186,8 @@ footer ul li + li
     footer div {justify-content: space-between;}
     
     .title h2 {font-size: 78px;}
+
+    .container {width: 80%;}
 }
 
 @media screen and (min-width: 1024px)
@@ -193,4 +199,6 @@ footer ul li + li
     footer div {justify-content: space-between;}
     
     .title h2 {font-size: 78px;}
+
+    .container {width: 80%;}
 }
