@@ -5,3 +5,7 @@
 - [Table Assignment // Assignment 5](https://jfuller1.github.io/Courses/Intro-To-WebDev/Fuller_Jaeden_Assignment_5/index.html)
 - [Responsive Blog Assignment // Assignment 6](https://jfuller1.github.io/Courses/Intro-To-WebDev/Blog/index.html)
 - [Final Project](https://jfuller1.github.io/Courses/Intro-To-WebDev/Final-Project/index.html)
+
+### Technical Writing
+
+- [Blog](https://jfuller1.github.io/Courses/Technical-Writing/Final-Project-TechWriting/index.html)

@@ -1,0 +1,196 @@
+@import 'base.css';
+@import 'nav-bar.css';
+
+form
+{
+    width: 600px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 100px 0;
+    box-shadow: 0 1px 8px rgb(0 0 0 / 15%);
+}
+
+form h2
+{
+    margin-bottom: 10px;
+    text-align: center;
+    display: block;
+}
+
+form hr
+{
+    width: 100px;
+    margin: 0 auto;
+    border-bottom: #24a6d6 3px solid;
+    margin-bottom: 30px;
+}
+
+input
+{
+    display: block;
+}
+
+input[type="text"]
+{
+    padding: 15px;
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border .3s ease-out;
+}
+
+input[type="email"]
+{
+    padding: 15px;
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border .3s ease-out;
+}
+
+input[type="email"]:focus, input[type="email"]:hover, input[type="text"]:focus, input[type="text"]:hover
+{
+    border: 2px solid #24a6d6;
+}
+
+form textarea
+{
+    width: 100%;
+    background-color: #f5f5f5;
+    resize: none;
+    padding: 15px;
+    height: 150px;
+    border-radius: 15px;
+    border: transparent 2px solid;
+    transition: border .3s ease-out;
+    margin-bottom: 30px;
+}
+
+form textarea:active, form textarea:hover
+{
+    border: #24a6d6 solid 2px;
+}
+
+form input[type="submit"]
+{
+    margin: 0 auto;
+    display: inherit;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #74c9e8;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: .5s all;
+}
+
+form input[type="submit"]:hover
+{
+    background-color: #42b6df;
+}
+
+input[type="text"]:valid, input[type="email"]:valid, textarea:valid
+{
+    background: rgba(0, 0, 0, 0.05) url(../img/check-mark.png) no-repeat 95% center;
+    background-size: 12px 12px;
+}
+
+form ul
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    margin-bottom: 10px;
+}
+
+form ul li + li
+{
+    margin-left: 70px;
+}
+
+form ul li a
+{
+    color: #74c9e8;
+    transition: .5s color;
+    line-height: 0;
+    font-size: 45px;
+}
+
+form ul li a:hover
+{
+    color: #42b6df;
+}
+
+main 
+{
+    display: flex;
+}
+
+main img
+{
+    align-self: center;
+}
+
+/* - - - - Media Queries - - - - */
+
+@media screen and (min-width: 0)
+{
+    main img {display: none;}
+    main form {width: auto}
+    .container {width: 90%;}
+}
+
+@media screen and (min-width: 320px)
+{
+    main img {display: none;}
+    main form {width: auto}
+    main h2 {font-size: 20px;}
+    .container {width: 90%;}
+    form ul li a {font-size: 30px;}
+}
+
+@media screen and (min-width: 580px)
+{
+    main img {display: none;}
+    main form {width: auto}
+    main h2 {font-size: 24px;}
+    .container {width: 90%;}
+    form ul li a {font-size: 45px;}
+}
+
+@media screen and (min-width: 768px)
+{
+    main img {display: none;}
+    main form {width: auto}
+    main h2 {font-size: 24px;}
+    .container {width: 80%;}
+    form ul li a {font-size: 45px;}
+}
+
+@media screen and (min-width: 1024px)
+{
+    main img {display: flex;}
+    main form {min-width: 400px}
+    main img {padding-left: 50px; width: 450px;}
+    main h2 {font-size: 24px;}
+    .container {width: 80%;}
+    form ul li a {font-size: 45px;}
+} 
+
+@media screen and (min-width: 1444px)
+{
+    main img {display: flex;}
+    main form {width: 600px; }
+    main img {padding-left: 0; width: 500px;}
+    main h2 {font-size: 24px;}
+    .container {width: 80%;}
+    form ul li a {font-size: 45px;}
+}

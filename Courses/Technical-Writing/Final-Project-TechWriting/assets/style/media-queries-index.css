@@ -1,0 +1,126 @@
+@media screen and (min-width: 0)
+{
+    nav {background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%);}
+    .arrow {background-color: rgba(0, 0, 0, .5);}
+    .overlay {background-color: rgba(0, 0, 0, .5);}
+    .spacing {align-items: center;}
+    .overlay p {max-width: 400px; text-align: center;}
+    .overlay hr {max-width: 200px;}
+    .overlay h2 {font-size: 40px;}
+    .landing-img {background-position:-1000px 0;}
+
+    .row {height: 28vh; flex-direction: column; overflow-y: visible; overflow: visible;}
+    .column {height: 28vh;}
+    .description h3 {margin: 25px 0; font-size: 12px; text-align: center;}
+    .description hr {display: none;}
+    .description p {font-size: 12px; padding-bottom: 25px}
+    .description li {font-size: 12px; display: none;}
+    .description {min-width: 28vh; max-width: 28vh; border-width: 0 2px 2px 2px; margin: 0 auto 4vh;}
+    .description:last-child {margin-right: auto;}
+    .header-hr {width: 200px;}
+}
+
+@media screen and (min-width: 320px)
+{
+
+    nav {background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%);}
+    .arrow {background-color: rgba(0, 0, 0, .5);}
+    .overlay {background-color: rgba(0, 0, 0, .5);}
+    .spacing {align-items: center;}
+    .overlay p {max-width: 300px; text-align: center;}
+    .overlay hr {max-width: 100px;}
+    .overlay h2 {font-size: 32px;}
+    .landing-img {background-position:-800px 0;}
+
+    .row {height: 100%; flex-direction: column; overflow: visible;}
+    .column {height: 46vh;}
+    .description h3 {margin: 25px 0; font-size: 15px; text-align: center;}
+    .description hr {display: none;}
+    .description p {font-size: 16px; padding-bottom: 25px}
+    .description li {font-size: 12px; display: none;}
+    .description {max-width: 46vh; border-width: 0 2px 2px 2px; margin: 0 auto 4vh;}
+    .description:last-child {margin-right: auto;}
+    .header-hr {width: 200px;}
+
+    .about-me-preview .para {width: 80%;}
+}
+
+@media screen and (min-width: 580px)
+{
+
+    nav {background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%);}
+    .arrow {background-color: rgba(0, 0, 0, .5);}
+    .overlay {background-color: rgba(0, 0, 0, .5);}
+    .spacing {align-items: center;}
+    .overlay p {max-width: 400px; text-align: center;}
+    .overlay hr {max-width: 200px;}
+    .overlay h2 {font-size: 40px;}
+    .landing-img {background-position:-600px 0;}
+
+    .row {height: 100%; flex-direction: column; overflow: visible;}
+    .column {height: 60vh;}
+    .description h3 {margin: 25px 0; font-size: 15px; text-align: center;}
+    .description hr {display: none;}
+    .description p {font-size: 16px; padding-bottom: 25px}
+    .description li {font-size: 12px; display: none;}
+    .description {max-width: 60vh; border-width: 0 2px 2px 2px; margin: 0 auto 4vh;}
+    .description:last-child {margin-right: auto;}
+    .header-hr {width: 200px;}
+
+    .about-me-preview .para {width: 50%;}
+}
+
+@media screen and (min-width: 768px)
+{
+
+    nav {background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.35) 100%);}
+    .arrow {background-color: rgba(0, 0, 0, .1);}
+    .overlay {background-color: rgba(0, 0, 0, .1);}
+    .spacing {align-items: baseline;}
+    .overlay p {max-width: 450px; text-align: left;}
+    .overlay hr {max-width: 400px;}
+    .overlay h2 {font-size: 40px;}
+    .landing-img {background-position: -300px 0;}
+
+    .row {height: 38vh; flex-direction: row; overflow: scroll; overflow-y: hidden;}
+    .column {height: 38vh;}
+    .description h3 {margin: 4vh 0; font-size: 18px; text-align: left;}
+    .description hr {display: none;}
+    .description p {font-size: 16px; padding-bottom: 0;}
+    .description li {font-size: 16px; display: block;}
+    .description {min-width: 450px; max-width: 450px; border-width: 2px 2px 2px 0; margin: 0 30px 0 0;}
+    .description:last-child {margin-right: 0;}
+    .header-hr {width: 400px;}
+    
+    .about-me-preview .para {width: 50%;}
+}
+
+@media screen and (min-width: 1024px)
+{
+
+    nav {background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.35) 100%);}
+    .arrow {background-color: rgba(0, 0, 0, .1);}
+    .overlay {background-color: rgba(0, 0, 0, .1);}
+    .spacing {align-items: baseline;}
+    .overlay p {max-width: 500px; text-align: left;}
+    .overlay hr {max-width: 500px;}
+    .overlay h2 {font-size: 48px;}
+    .landing-img {background-position: center center;}
+
+    .row {height: 48vh; flex-direction: row; overflow: scroll; overflow-y: hidden;}
+    .column {height: 48vh;}
+    .description h3 {margin: 4vh 0; font-size: 18px; text-align: left;}
+    .description hr {display: block;}
+    .description p {font-size: 16px; padding-bottom: 0;}
+    .description li {font-size: 16px; display: block;}
+    .description {min-width: 450px; max-width: 450px; border-width: 2px 2px 2px 0; margin: 0 30px 0 0;}
+    .description:last-child {margin-right: 0;}
+    .header-hr {width: 500px;}
+
+    .about-me-preview .para {width: 50%;}
+}
+
+@media screen and (min-width: 1444px)
+{
+    .about-me-preview .para {width: 50%;}
+}

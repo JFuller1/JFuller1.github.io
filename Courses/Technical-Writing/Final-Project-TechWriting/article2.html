@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>How To Carve A Pumpkin</title>
+
+        <link rel="stylesheet" href="assets/style/article.css" media="all">
+
+        <!--Font from google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+        <!--Font Awesome Link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <div class="container">
+                    <img src="assets/img/sickestlogoever.png" width="50px" height="50px">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html" class="current-page">Articles</a></li>
+                        <li><a href="about-me.html">About Me</a></li>
+                        <li><a href="contact-me.html">Contact Me</a></li>
+                    </ul>
+                    <div class="mobile-nav">
+                        <p><i class="fas fa-bars" title="Menu"></i></p>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="container row">
+                <div class="articleCont">
+                    <h2>HTML & CSS</h2>
+                    <hr class="hr">
+                    <p class="credit">Written By: Jaeden Fuller | October 12th, 2021</p>
+
+                    <img class="title-img" src="assets/img/article-2.jpg">
+                    <p class="citation">Olivio, F (2018) "HTML class="3" [Unsplash License] <a href="https://unsplash.com/photos/4hbJ-eymZ1o">Unsplash</a> </p>
+
+                    <p>
+                        Looking to learn the basics of <span class="bold">HyperText Markup Language (HTML)</span> & 
+                        <span class="bold">Cascading Style Sheets (CSS)</span> so you can 
+                        finally develop your own website? You’ve come to the right place!  
+                    </p>
+
+                    <p>
+                        Before we discuss HTML & CSS you are going to have to download a code editor. 
+                        I like to use <a href="https://code.visualstudio.com/download" target="_BLANK">Visual Studio Code</a> but 
+                        there are many you can choose from, such as <a href="https://www.sublimetext.com" target="_BLANK">Sublime</a>, 
+                        <a href="https://atom.io/" target="_BLANK">Atom</a>, or 
+                        <a href="https://notepad-plus-plus.org/downloads/" target="_BLANK">Notepad++</a>. 
+                    </p>
+
+                    <h3 class="sub-heading">HTML Basics</h3>
+
+                    <p>
+                        HTML’s function is to create the 
+                        content that will be displayed on the page, 
+                        not to make it look good, that’s what CSS does. 
+                        In your selected code editor create a .html file. 
+                        It’s recommended to name that file “index.html” as 
+                        it will be the page webservers default to when hosting your website. 
+                    </p>
+                    
+                    <h4 class="imageTitle">Basic .html File Setup</h4>
+                    <hr class="imagehrTop">
+                    <img src="assets/img/documentSetup.png" style="width: 80%">
+                    <hr class="imagehrBottom">
+
+                    <p>
+                        For now, you should only be worried about whats inside the 
+                        <span class="bold"> &lt;body&gt; &lt;/body&gt; </span> tag, which is 
+                        where you put all your code that displays on the webpage.
+                    </p>
+
+                    <p>
+                        HTML is made up of HTML Elements, these elements 
+                        can be paragraphs, headers, images, links, and more. 
+                        HTML Elements are made up of:
+                    </p>
+
+                    <ul>
+                        <li>
+                            <span class="bold ylwHighlight">Opening tag</span>, which defines 
+                            what type of element you are creating.
+                        </li>
+
+                        <li>
+                            <span class="bold grnHighlight">Content area</span>, 
+                            where you put any content you want to be displayed.
+                        </li>
+
+                        <li>
+                            <span class="bold blHighlight">Closing tag</span>, 
+                            which closes the content section and ends the element.
+                        </li>
+
+                        <li>
+                            <span class="bold orngHighlight">Attributes</span> are used to define content for 
+                            elements which don't need a content. 
+                            As an example, image elements have no need for a content area or closing tag
+                            as all the information is defined in the opening tag (the attribute section).
+                        </li>
+                    </ul>
+
+                    <p>
+                        Although 
+                        there are some exceptions, such as the image element, which 
+                        doesn’t have a content area or a closing tag because 
+                        it uses an attribute to define the content. 
+                    </p>
+
+                    <h4 class="imageTitle">HTML Element Example</h4>
+                    <hr class="imagehrTop">
+                    <img src="assets/img/HTMLExample.jpg" style="width: 80%;">
+                    <h4 class="imageTitle">Result</h4>
+                    <hr class="imagehrTop">
+                    <img src="assets/img/resault1.png" style="width: 80%;">
+                    <hr class="imagehrBottom">
+
+                    <p>
+                        Notice how some elements appear on the same line where others don't? 
+                        That’s because certain elements are <span class="bold">block elements</span>, which appear on new line,
+                        and others are <span class="bold">inline elements</span>, which appear on the same line.
+                    </p>
+
+                    <p>Some block elements include:</p>
+                    <ul>
+                        <li>Paragraphs</li>
+                        <li>Headers</li>
+                        <li>List Items</li>
+                    </ul>
+
+                    <p>Some inline elements include:</p>
+                    <ul>
+                        <li>Links</li>
+                        <li>Images</li>
+                        <li>Buttons</li>
+                    </ul>
+
+                    <h3 class="sub-heading">CSS Basics</h3>
+
+                    <p>
+                        The type of CSS we will be covering is <span class="bold">inline CSS</span>. 
+                        Inline CSS is CSS that is put inside the HTML 
+                        Elements attribute section. It’s divided into 2 sections:
+                    </p>
+                    <ul>
+                        <li>
+                            <span class="bold ylwHighlight">Property</span>, 
+                            which defines what part of the element is being changed.
+                        </li>
+
+                        <li>
+                            <span class="bold grnHighlight">Value</span>,
+                            which defines what said property is being change to.
+                        </li>
+                    </ul>
+
+                    <h4 class="imageTitle">CSS Example</h4>
+                    <hr class="imagehrTop">
+                    <img src="assets/img/cssExample.jpg" style="width: 80%;">
+                    <h4 class="imageTitle">Result</h4>
+                    <hr class="imagehrTop">
+                    <img src="assets/img/resault2.png" style="width: 80%;">
+                    <hr class="imagehrBottom">
+
+                    <p>
+                        I encourage you to keep playing with HTML & CSS 
+                        to see what you can make! If you have any questions 
+                        you can check out <span class="bold">W3Schools</span>, which has an 
+                        extensive library on anything <a href="https://www.w3schools.com/html/default.asp" target="_BLANK">HTML</a> 
+                        or <a href="https://www.w3schools.com/css/default.asp" target="_BLANK">CSS</a>. 
+                        You could also attend this 
+                        <a href="https://www.codecademy.com/catalog/language/html-css" target="_BLANK">Codecademy</a> course.
+                    </p>
+                </div>
+            </section>
+
+            <form>
+                <div class="bg">
+                    <h3>Never Miss A Post!</h3>
+                    <hr>
+                    <input type="email" name="email" placeholder="Email (abc@email.com)" pattern="^(?=^.{8,}$)[-_A-Za-z0-9]+([_.-][a-zA-Z0-9]+)*@[A-Za-z0-9]+([.-][a-zA-Z0-9]+)*\.[A-Za-z]{2,}$" required>
+                    <input type="submit" value="Subscribe">
+                </div>
+            </form>
+
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; Jaeden Fuller 2021</p>
+
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

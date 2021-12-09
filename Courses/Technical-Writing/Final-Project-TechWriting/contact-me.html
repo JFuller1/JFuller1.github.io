@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Contact Me</title>
+
+        <link rel="stylesheet" href="assets/style/contact.css" media="all">
+
+        <!--Font from google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+        <!--Font Awesome Link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <div class="container">
+                    <img src="assets/img/sickestlogoever.png" width="50px" height="50px">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="about-me.html">About Me</a></li>
+                        <li><a href="contact-me.html" class="current-page">Contact Me</a></li>
+                    </ul>
+                    <div class="mobile-nav">
+                        <p><i class="fas fa-bars" title="Menu"></i></p>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container">
+            <div class="container">
+                <form>
+                    <h2 class="header">Get In Contact!</h2>
+                    <hr>
+    
+                    <input type="text" name="first_name" placeholder="First Name *" pattern="^[a-zA-Z]+$" required>
+                    <input type="text" name="last_name" placeholder="Last Name *" required>
+                    <input type="email" name="email" placeholder="Email (abc@email.com) *" pattern="^(?=^.{8,}$)[-_A-Za-z0-9]+([_.-][a-zA-Z0-9]+)*@[A-Za-z0-9]+([.-][a-zA-Z0-9]+)*\.[A-Za-z]{2,}$" required>
+        
+                    <textarea name="message" placeholder="Leave a Message" maxlength="1000" required></textarea>
+        
+                    <input type="submit" value="Submit">
+
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    </ul>
+                </form>
+            </div>
+            
+            <img src="assets/img/contact-img.png">
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; Jaeden Fuller 2021</p>
+
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
