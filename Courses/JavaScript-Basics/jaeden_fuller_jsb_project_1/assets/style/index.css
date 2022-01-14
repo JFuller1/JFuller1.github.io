@@ -1,0 +1,157 @@
+@import 'base.css';
+
+header{
+    min-width: 100%;
+    background-color: #69B6CF;
+    overflow: hidden;
+    height: 10vh;
+}
+
+.headingDark {
+    background-color: #152642;
+}
+
+header div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #FFFEFF;
+}
+
+header div button
+{
+    color: #FFFEFF;
+    font-weight: 600;
+    font-size: 18px;
+    height: 50px;
+    background-color: #39A3C0;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.colButtonDark {
+    background-color:#081B33;
+}
+
+.colButtonDark:hover {
+    background-color: #0d2d55;
+}
+
+.colButtonDark:active {
+    background-color: #051222;
+}
+
+
+header div button:hover {
+    background-color: #45acc8;
+}
+
+header div button:active {
+    background-color: #3188a0;
+}
+
+body {
+    background-color: #FFFEFF;
+}
+
+.bodyDark {
+    background-color: #2F4562;
+}
+
+.h2Dark {
+    color: #FFFEFF;
+}
+
+section hr {
+    margin: 10px 0 20px;
+    width: 100%;
+    width: 500px;
+    border-bottom: #69B6CF 3px solid;
+}
+
+section {
+    margin-top: 50px;
+}
+
+.text {
+    width: 350px;
+    height: 50px;
+    border: #EAF0FB 3px solid;
+    border-radius: 4px;
+    padding-left: 20px;
+    font-size: 17px;
+}
+
+.button {
+    width: 135px;
+    margin-left: 15px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #7DC5DF;
+    font-size: 17px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #8dcce3;
+}
+
+.button:active {
+    background-color: #6dbedb;
+}
+
+section p {
+    width: 500px;
+    height: 50px;
+    margin-top: 20px;
+    background-color: #EAF0FB;
+    border-radius: 4px;
+    font-size: 17px;
+    line-height: 50px;
+    padding-left: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+main .lastSection {
+    margin-left: auto;
+}
+
+.buttonDark {
+    background-color: #152642;
+}
+
+.buttonDark:hover {
+    background-color: #1e3760;
+}
+
+.buttonDark:active {
+    background-color: #0c1524;
+}
+
+.hrDark {
+    border-bottom: #152642 3px solid;
+}
+
+.pDark {
+    color: #FFFFFF;
+    background-color: #506680;
+}
+
+.textDark {
+    border: #506680 3px solid;
+    background-color: #2F4562;
+    color: #FFFFFF;
+}
+
+.textDark::placeholder {
+    color: #ddd;
+}

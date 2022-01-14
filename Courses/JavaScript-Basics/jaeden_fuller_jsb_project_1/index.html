@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        
+        <link rel="stylesheet" href="assets/style/index.css" media="all">
+
+        <!--Font from google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800&display=swap" rel="stylesheet">
+        <!--Font Awesome Link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+
+        <script defer src="assets/script/index.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class="container flexbox">
+                <div class="title">
+                    <h1>Project 1</h1>
+                </div>
+                <div>
+                    <button id="colorChange">Dark Mode</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <section>
+                <h2>Celsius to Fahrenheit</h2>
+                <hr>
+                <form action="#">
+                    <input name='text' type="text" id="input1" class="text" placeholder="Celsius">
+                    <input type="button" id="button1" class="button" value="Convert">
+                </form>
+                <p id='para1'>Please, enter a number</p> 
+            </section>
+
+            <section class="lastSection">
+                <h2>Fahrenheit to Celsius</h2>
+                <hr>
+                <form action="#">
+                    <input name='text' type="text" id="input2" class="text" placeholder="Fahrenheit">
+                    <input type="button" id="button2" class="button" value="Convert">
+                </form>
+                <p id='para2'>Please, enter a number</p>
+            </section>
+        </main>
+    </body>
+</html>
