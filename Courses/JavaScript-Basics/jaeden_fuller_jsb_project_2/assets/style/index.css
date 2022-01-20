@@ -1,0 +1,129 @@
+@import 'base.css';
+
+body {
+    background-color: #141414;
+}
+
+#clear {grid-area: clear;}
+
+#one {grid-area: one;}
+
+#two {grid-area: two;}
+
+#three {grid-area: three;}
+
+#four {grid-area: four;}
+
+#five {grid-area: five;}
+
+#six {grid-area: six;}
+
+#seven {grid-area: seven;}
+
+#eight {grid-area: eight;}
+
+#nine {grid-area: nine;}
+
+#zero {grid-area: zero1;}
+
+#point {grid-area: point;}
+
+#divide {grid-area: divide;}
+
+#multiply {grid-area: mult;}
+
+#add {grid-area: adds;}
+
+#sub {grid-area: subs;}
+
+#equal {grid-area: equal;}
+
+#numberPad {
+    display: grid;
+    grid-template-areas: 
+    'clear clear clear divide'
+    'seven eight nine mult'
+    'four five six adds'
+    'one two three subs'
+    'zero1 zero1 point equal';
+    width: 475px;
+    height: 475px;
+    gap: 25px;
+    padding-top: 40px;
+    background-color: #141414;
+    margin: 0 auto;
+}
+
+#numberPad .lightPurp {
+    color: #5900b2;
+    border-radius: 6px;
+    background: linear-gradient(145deg, #151515, #121212);
+    box-shadow:  5px 5px 10px #111111,
+                 -5px -5px 10px #171717;
+}
+
+#numberPad .lightPurp:active {
+    box-shadow: inset 5px 5px 10px #121212,
+            inset -5px -5px 10px #161616;
+}
+
+#numberPad .darkPurp {
+background: linear-gradient(145deg, #5f00be, #5000a0);
+    color: #fff;
+    border-radius: 6px;
+    box-shadow:  5px 5px 10px #111111,
+                 -5px -5px 10px #171717;
+}
+
+#numberPad .darkPurp:active {
+    background: linear-gradient(145deg, #2d005a, #36006b);
+}
+
+#numberPad div {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+section { 
+    border-radius: 7px;
+    background: #181818;
+    box-shadow: inset 5px 5px 7px #121212,
+                inset -5px -5px 7px #1e1e1e;
+    
+    height: 150px;
+    width: 475px;
+    visibility: visible;
+    /* margin: 30px auto 0; */
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+main {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#operation {
+    font-size: 25px;
+    color: #fff;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#operation::after {
+    content: '-';
+    visibility: hidden;
+}
+
+#numbers {
+    font-size: 50px;
+    color: #5f00be;
+    text-align: right;
+}
