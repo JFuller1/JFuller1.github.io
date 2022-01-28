@@ -13,3 +13,4 @@
 ### JavaScript Projects
 - [Dark Mode // Project 1](https://jfuller1.github.io/Courses/JavaScript-Basics/jaeden_fuller_jsb_project_1/index.html)
 - [Calculator // Project 2](https://jfuller1.github.io/Courses/JavaScript-Basics/jaeden_fuller_jsb_project_2/index.html)
+- [Search Engine // Final Project](https://jfuller1.github.io/Courses/JavaScript-Basics/jaeden_fuller_jsb_final_project/index.html)

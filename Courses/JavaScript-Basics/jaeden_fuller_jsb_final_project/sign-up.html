@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gling</title>
+        
+        <link rel="stylesheet" href="assets/style/sign-up.css" media="all">
+
+        <!--Font from google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800&display=swap" rel="stylesheet">
+        <!--Font Awesome Link-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+        <script defer src="assets/script/signup.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class="container flexbox">
+                <div class="title">
+                    <a href="index.html"><h1>Gling</h1></a>
+                    <div class="whitespace"></div>
+                    <a href="sign-up.html"><button>Sign Up</button></a>
+                    <a><button id="show">Login</button></a>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <form id="signupForm">
+                <div class="flex1">
+                    <h2>Sign Up!</h2>
+                    <div>
+                        <input type="text" id="first-name" placeholder="First Name">
+                        <input type="text" id="last-name" placeholder="Last Name">
+                        <input type="text" id="username" placeholder="Username">
+                        <input type="email" id="email" placeholder="123@email.com">
+                        <input type="text" id="pswrd" placeholder="Password">
+                    </div>
+                    <input type="button" class="buttons1" id="send" value="Submit">
+                </div>
+            </form>
+        </main>
+
+        <div id="overlay"></div>
+
+        <div class="alignForm">
+            <form id="form">
+                <div class="flex">
+                    <h2>Login</h2>
+                    <div>
+                        <input type="text" id="username2" placeholder="Username">
+                        <input type="password" id="pswrd2" placeholder="Password">
+                    </div>
+                    <p>Don't Have An Account? <a href="sign-up.html">Click Here!</a> </p>
+                    <input type="button" class="buttons1" id="send2" value="Submit">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
