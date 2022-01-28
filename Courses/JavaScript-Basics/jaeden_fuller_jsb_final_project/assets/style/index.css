@@ -103,6 +103,13 @@ main {
     background-color: #00b488;
 }
 
+#form input[type='password'] {
+    font-size: 20px;
+}
+
+#form input[type='password']::placeholder {
+    font-size: 13px;
+}
 
 form h2 {
     text-align: center;
