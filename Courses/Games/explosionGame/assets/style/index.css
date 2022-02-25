@@ -1,0 +1,118 @@
+.tile {
+    height: 80px;
+    width: 80px;
+    background: url('../bigtiles.png') -480px -240px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+#grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.piece {
+    width: 80px; 
+    height: 80px; 
+    background-color: greenyellow; 
+    /* margin-right: 25px; */
+}
+
+#inventory {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+}
+
+.wall {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -640px -240px;
+}
+
+.brick {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -80px 0;
+}
+
+.startHorizontal {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') 0 0;
+}
+
+.startVertical {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') 0 -80px;
+}
+
+.quadShoot {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -160px 0;
+}
+
+.curveLeftUp {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -480px -80px;
+}
+
+.curveRightUp {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -400px -80px;
+}
+
+.curveRightDown {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -400px 0;
+}
+
+.curveLeftDown {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -480px 0;
+}
+
+.tSplitUpDownLeft {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -80px -80px;
+}
+
+.tSplitUpDownRight {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -240px -80px;
+}
+
+.tSplitLeftRightUp {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -160px -80px;
+}
+
+.tSplitLeftRightDown {
+    width: 80px;
+    height: 80px;
+    background: url('../bigtiles.png') -320px -80px;
+}
+
+.explosion {
+    width: 80px;
+    height: 80px;
+    background: url('../explosion.gif') 0 0;
+}
+
+body {
+    background-color: #17111a;
+}
