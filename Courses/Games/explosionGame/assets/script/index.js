@@ -80,7 +80,7 @@ const level = {
             [0,4]
         ],
         startType : 'startHorizontal',
-        inventoryLoad : ['curveRightDown', 'quadShoot']
+        inventoryLoad : ['curveRightDown', 'tSplitLeftRightUp']
     },
     level4: {
         heights: 5,
@@ -250,7 +250,6 @@ startButton.addEventListener('click', function() {
                 movementDown++;
                 movementUp--;
 
-                console.log(`girdCon: ${gridCon} down: ${movementDown}`);
                 rightFunc(elem, movement, 'horizontal', gridCon, movementDown, movementUp);
                 leftFunc(elem, movementL, 'horizontal', gridCon, movementDown, movementUp);
             } else if(elem.childNodes[i].classList.contains('startVertical')) {
@@ -263,34 +262,12 @@ startButton.addEventListener('click', function() {
 
                 // checkTiles(elem, movement, 'vertical', gridCon, movementDown, movementUp);
 
-                downFunc(elem, movement, gridCon, movementDown);
-                upFunc(elem, movement, gridCon, movementUp);
+                downFunc(elem, movement, gridCon, movementDown, movementUp);
+                upFunc(elem, movement, gridCon, movementDown, movementUp);
             }
         }
     }
 });
-
-function rightFunc1(elem, movement, direction, vertElem, down, up) {
-    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tile')) {
-        setTimeout(function(){
-            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
-            movement++;
-            rightFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
-    }
-
-    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('brick')) {
-        setTimeout(function(){
-            elem.childNodes[movement].classList.remove('brick');
-            elem.childNodes[movement].classList.add('tile');
-            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
-            movement++;
-
-            checkBricks();
-            rightFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
-    }   
-}
 
 function rightFunc(elem, movement, direction, vertElem, down, up) {
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tile')) {
@@ -320,7 +297,7 @@ function rightFunc(elem, movement, direction, vertElem, down, up) {
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
 
 
-            upFunc(elem, movement, vertElem, up);
+            upFunc(elem, movement, vertElem, down, up);
         }, 500)
     }
 
@@ -331,7 +308,7 @@ function rightFunc(elem, movement, direction, vertElem, down, up) {
             // movement++;
             
             // elem, movement, vertElem, down
-            downFunc(elem, movement, vertElem, down);
+            downFunc(elem, movement, vertElem, down, up);
         }, 500)
     }
 
@@ -340,48 +317,54 @@ function rightFunc(elem, movement, direction, vertElem, down, up) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
 
-            downFunc(elem, movement, vertElem, down);
-            upFunc(elem, movement, vertElem, up);
+            downFunc(elem, movement, vertElem, down, up);
+            upFunc(elem, movement, vertElem, down, up);
             movement++;
-            rightFunc1(elem, movement, 'horizontal', vertElem, down, up);
+            rightFunc(elem, movement, 'horizontal', vertElem, down, up);
+        }, 500)
+    }
+
+    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitLeftRightUp')) {
+
+        setTimeout(function(){
+            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            upFunc(elem, movement, vertElem, down, up);
+            movement++;
+            rightFunc(elem, movement, 'horizontal', vertElem, down, up);
+        }, 500)
+    }
+
+    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitUpDownLeft')) {
+
+        setTimeout(function(){
+            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            upFunc(elem, movement, vertElem, down, up);
+            downFunc(elem, movement, vertElem, down, up);
+        }, 500)
+    }
+
+    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitLeftRightDown')) {
+
+        setTimeout(function(){
+            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            downFunc(elem, movement, vertElem, down, up);           
+            movement++;
+            rightFunc(elem, movement, 'horizontal', vertElem, down, up);
         }, 500)
     }
     
 }
 
-function leftFunc1(elem, movement, direction, vertElem, down, up) {
-    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tile')) {
-        setTimeout(function(){
-            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
-            movement--;
-
-            leftFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
-    }
-
-    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('brick')) {
-        setTimeout(function(){
-            elem.childNodes[movement].classList.remove('brick');
-            elem.childNodes[movement].classList.add('tile');
-            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
-            setTimeout(function(){
-                // elem.childNodes[movement].innerHTML = '';
-            }, 200);
-            movement--;
-
-            checkBricks();
-            leftFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
-    }   
-
-}
 
 function leftFunc(elem, movement, direction, vertElem, down, up) {
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tile')) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
-            movement--;
 
+            movement--;
             leftFunc(elem, movement, 'horizontal', vertElem, down, up);
         }, 500)
     }
@@ -405,8 +388,7 @@ function leftFunc(elem, movement, direction, vertElem, down, up) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
 
-
-            upFunc(elem, movement, vertElem, up);
+            upFunc(elem, movement, vertElem, down, up);
         }, 500)
     }
 
@@ -414,7 +396,7 @@ function leftFunc(elem, movement, direction, vertElem, down, up) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
 
-            downFunc(elem, movement, vertElem, down);
+            downFunc(elem, movement, vertElem, down, up);
         }, 500)
     }
 
@@ -422,24 +404,54 @@ function leftFunc(elem, movement, direction, vertElem, down, up) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
 
-            downFunc(elem, movement, vertElem, down);
-            upFunc(elem, movement, vertElem, up);
+            downFunc(elem, movement, vertElem, down, up);
+            upFunc(elem, movement, vertElem, down, up);
             movement--;
-            leftFunc1(elem, movement, 'horizontal', vertElem, down, up);
+            leftFunc(elem, movement, 'horizontal', vertElem, down, up);
+
+        }, 500)
+    }
+
+    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitLeftRightDown')) {
+        setTimeout(function(){
+            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            downFunc(elem, movement, vertElem, down, up);
+            movement--;
+            leftFunc(elem, movement, 'horizontal', vertElem, down, up);
+
+        }, 500)
+    }
+
+    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitLeftRightUp')) {
+        setTimeout(function(){
+            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            upFunc(elem, movement, vertElem, down, up);
+            movement--;
+            leftFunc(elem, movement, 'horizontal', vertElem, down, up);
+
+        }, 500)
+    }
+
+    if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitUpDownRight')) {
+        setTimeout(function(){
+            elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            upFunc(elem, movement, vertElem, down, up);
+            downFunc(elem, movement, vertElem, down, up);
 
         }, 500)
     }
 
 }
 
-function downFunc(elem, movement, vertElem, down) {
+function downFunc(elem, movement, vertElem, down, up) {
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('tile')) {
         setTimeout(function(){
-            if(vertElem.childNodes[down].childNodes[movement].classList.contains('tile')) {
-                vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
-            }
+            vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
             down++;
-            downFunc(elem, movement, gridCon, down);
+            downFunc(elem, movement, gridCon, down, up);
         }, 500);
     }
 
@@ -451,40 +463,96 @@ function downFunc(elem, movement, vertElem, down) {
             down++;
 
             checkBricks();
-            rightFunc(elem, movement, 'horizontal');
                 
-            downFunc(elem, movement, gridCon, down);
-        }, 500);
-    }
-}
-
-function downFunc1(elem, movement, vertElem, down) {
-    if(vertElem.childNodes[down].childNodes[movement].classList.contains('tile')) {
-        setTimeout(function(){
-            if(vertElem.childNodes[down].childNodes[movement].classList.contains('tile')) {
-                vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
-            }
-            down++;
-            downFunc(elem, movement, gridCon, down);
+            downFunc(elem, movement, gridCon, down, up);
         }, 500);
     }
 
-    if(vertElem.childNodes[down].childNodes[movement].classList.contains('brick')) {
+    if(vertElem.childNodes[down].childNodes[movement].classList.contains('curveLeftUp')) {
         setTimeout(function(){
-            vertElem.childNodes[down].childNodes[movement].classList.remove('brick');
-            vertElem.childNodes[down].childNodes[movement].classList.add('tile');
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            movement--;
+
+            let downClone = down;
+            downClone--;
+            up = downClone;
+
+            leftFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
+        }, 500);
+    }
+
+    if(vertElem.childNodes[down].childNodes[movement].classList.contains('curveRightUp')) {
+        setTimeout(function(){
+            vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            let downClone = down;
+            downClone--;
+            up = downClone;
+            movement++;
+            rightFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
+        }, 500);
+    }
+
+    if(vertElem.childNodes[down].childNodes[movement].classList.contains('quadShoot')) {
+        setTimeout(function(){
+            vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            let downClone = down;
+            downClone--;
+            up = downClone;
+            movement++;
+            rightFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
+            movement -= 2;
+            leftFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
+            movement++;
             down++;
+            downFunc(elem, movement, gridCon, down, up);
+        }, 500);
+    }
 
-            checkBricks();
-            rightFunc(elem, movement, 'horizontal');
-                
-            downFunc(elem, movement, gridCon, down);
+    if(vertElem.childNodes[down].childNodes[movement].classList.contains('tSplitUpDownLeft')) {
+        setTimeout(function(){
+            let downClone = down;
+            downClone--;
+            up = downClone;
+            vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            movement--;
+            leftFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
+            movement++;
+            down++;
+            downFunc(elem, movement, gridCon, down, up);
+        }, 500);
+    }
+
+    if(vertElem.childNodes[down].childNodes[movement].classList.contains('tSplitUpDownRight')) {
+        setTimeout(function(){
+            vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            let downClone = down;
+            downClone--;
+            up = downClone;
+            vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            movement++;
+            rightFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
+            movement--;
+            down++;
+            downFunc(elem, movement, gridCon, down, up);
+        }, 500);
+    }
+
+    if(vertElem.childNodes[down].childNodes[movement].classList.contains('tSplitLeftRightUp')) {
+        setTimeout(function(){
+            vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            let downClone = down;
+            downClone--;
+            up = downClone;
+            movement++;
+            rightFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
+            movement -= 2;
+            leftFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
         }, 500);
     }
 }
 
-function upFunc(elem, movement, vertElem, up) {
+function upFunc(elem, movement, vertElem, down, up) {
     
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('tile')) {
         setTimeout(function(){
@@ -492,7 +560,7 @@ function upFunc(elem, movement, vertElem, up) {
                 vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
             }
             up--;
-            upFunc(elem, movement, gridCon, up);
+            upFunc(elem, movement, gridCon, down, up);
         }, 500);
     }
 
@@ -504,36 +572,96 @@ function upFunc(elem, movement, vertElem, up) {
             up--;
 
             checkBricks();
-            rightFunc(elem, movement, 'horizontal');
 
-            upFunc(elem, movement, gridCon, up);
-        }, 500);
-    }
-}
-
-function upFunc1(elem, movement, vertElem, up) {
-    
-    if(vertElem.childNodes[up].childNodes[movement].classList.contains('tile')) {
-        setTimeout(function(){
-            if(vertElem.childNodes[up].childNodes[movement].classList.contains('tile')) {
-                vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
-            }
-            up--;
-            upFunc(elem, movement, gridCon, up);
+            upFunc(elem, movement, gridCon, down, up);
         }, 500);
     }
 
-    if(vertElem.childNodes[up].childNodes[movement].classList.contains('brick')) {
+    if(vertElem.childNodes[up].childNodes[movement].classList.contains('quadShoot')) {
         setTimeout(function(){
-            vertElem.childNodes[up].childNodes[movement].classList.remove('brick');
-            vertElem.childNodes[up].childNodes[movement].classList.add('tile');
+
             vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            let upClone = up;
+            upClone++;
+            down = upClone;
+            movement++;
+            rightFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
+            movement -= 2;
+            leftFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
+            movement++;
             up--;
+            upFunc(elem, movement, gridCon, down, up);
 
-            checkBricks();
-            rightFunc(elem, movement, 'horizontal');
+        }, 500);
+    }
+        //,, , , 'tSplitLeftRightUp', , 'quadShoot'
 
-            upFunc(elem, movement, gridCon, up);
+    if(vertElem.childNodes[up].childNodes[movement].classList.contains('curveRightDown')) {
+        setTimeout(function(){
+            vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            let upClone = up;
+            upClone++;
+            down = upClone;
+            movement++;
+            rightFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
+        }, 500);
+    }
+
+    if(vertElem.childNodes[up].childNodes[movement].classList.contains('curveLeftDown')) {
+        setTimeout(function(){
+            vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            let upClone = up;
+            upClone++;
+            down = upClone;
+            movement--;
+            leftFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
+        }, 500);
+    }
+
+    if(vertElem.childNodes[up].childNodes[movement].classList.contains('tSplitUpDownLeft')) {
+        setTimeout(function(){
+            vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            let upClone = up;
+            upClone++;
+            down = upClone;
+            movement--;
+            leftFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
+            movement++;
+            up--;
+            upFunc(elem, movement, gridCon, down, up);
+        }, 500);
+    }
+
+    if(vertElem.childNodes[up].childNodes[movement].classList.contains('tSplitUpDownRight')) {
+        setTimeout(function(){
+            vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            let upClone = up;
+            upClone++;
+            down = upClone;
+            movement++;
+            rightFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
+            movement--;
+            up--;
+            upFunc(elem, movement, gridCon, down, up);
+        }, 500);
+    }
+
+    if(vertElem.childNodes[up].childNodes[movement].classList.contains('tSplitLeftRightDown')) {
+        setTimeout(function(){
+            vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+
+            let upClone = up;
+            upClone++;
+            down = upClone;
+            movement++;
+            rightFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
+            movement -= 2;
+            leftFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
         }, 500);
     }
 }
