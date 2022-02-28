@@ -11,7 +11,7 @@
         <!--Font from google fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
         <!--Font Awesome Link-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 
@@ -20,16 +20,26 @@
 
     <body>
         <main class="container">
+            <h1 id="level">Level 1</h1>
             <div id="grid">
 
             </div>
 
+            <p class="howtoplay">
+                How To Play:<br>
+                Click the <span style="color: #8dc156">green</span> tiles on the left and place them on the grid.<br>
+                Click the <span style="color: #d04153">red</span> start button on the right to begin the chain reaction.<br>
+                Use the <span style="color: #8dc156">green</span> tiles to explode all <span style="color: #60a8b0">blue</span> tiles.<br>
+                Press the <span style="color: #8dc156">green</span> restart button on the right to reset the level.
+            </p>
+
             <div id="inventory">
 
             </div>
-
-            <button id="startButton">Start</button>
-            <button id="reset">Reset</button>
+            <div class="buttoncontainer">
+                <button id="startButton"></button>
+                <button id="reset"></button>
+            </div>
         </main>
     </body>
 </html>

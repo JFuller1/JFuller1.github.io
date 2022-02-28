@@ -1,8 +1,20 @@
+//Audio
+const pickupSfx = new Audio('assets/pickup.wav');
+const placeSfx = new Audio('assets/place.wav');
+const explosionSfx = new Audio('assets/explosion.wav');
+const bgMusic = new Audio('assets/bgMusic.mp3');
+
+pickupSfx.volume = 0.5;
+placeSfx.volume = 0.5;
+explosionSfx.volume = 0.5;
+bgMusic.volume = 0.7;
 
 // Grid Creation
 
 const gridCon = document.getElementById('grid');
 const resetButton = document.getElementById('reset');
+
+const levelCounter = document.getElementById('level');
 
 const row = document.createElement('div');
 row.classList.add('row');
@@ -28,6 +40,7 @@ let isStartShoot = false;
 
 let lvlCount = 1;
 let levels = 'level' + lvlCount;
+levelCounter.innerHTML = 'Level ' + lvlCount;
 
 const inventory = document.getElementById('inventory');
 let piece = '';
@@ -97,7 +110,7 @@ const level = {
             [0,2]
         ],
         startType : 'startHorizontal',
-        inventoryLoad : ['quadShoot', 'quadShoot', 'curveLeftDown']
+        inventoryLoad : ['quadShoot', 'tSplitUpDownLeft', 'curveLeftDown']
     },
     level5: {
         heights: 5,
@@ -116,13 +129,132 @@ const level = {
         ],
         startType : 'startHorizontal',
         inventoryLoad : ['quadShoot', 'curveRightUp', 'curveLeftUp']
+    },
+    level6: {
+        heights: 5,
+        widths: 9,
+        walls: [
+            [3,3],
+            [3,4]
+        ],
+        bricks: [
+            [4,0],
+            [6,0],
+            [2,4],
+            [4,4],
+            [6,4]
+        ],
+        start : [
+            [0,2]
+        ],
+        startType : 'startHorizontal',
+        inventoryLoad : ['quadShoot', 'tSplitUpDownLeft', 'tSplitLeftRightDown', 'curveLeftUp']
+    },
+    level7: {
+        heights: 6,
+        widths: 6,
+        walls: [
+            [3,2],
+            [3,3],
+            [3,4]
+        ],
+        bricks: [
+            [2,0],
+            [3,5],
+            [1,1],
+            [1,5],
+            [5,2]
+        ],
+        start : [
+            [0,0]
+        ],
+        startType : 'startVertical',
+        inventoryLoad : ['curveLeftDown', 'curveRightUp', 'tSplitLeftRightUp', 'curveLeftUp']
+    },
+    level8: {
+        heights: 5,
+        widths: 5,
+        walls: [
+            [0,2],
+            [1,2],
+            [4,4]
+        ],
+        bricks: [
+            [1,3],
+            [2,2],
+            [3,1],
+            [4,0]
+        ],
+        start : [
+            [0,4]
+        ],
+        startType : 'startHorizontal',
+        inventoryLoad : ['quadShoot', 'curveLeftUp', 'curveRightDown','tSplitLeftRightDown']
+    },
+    level9: {
+        heights: 7,
+        widths: 10,
+        walls: [
+            [0,2],
+            [1,2],
+            [2,2],
+            [3,2],
+            [3,4],
+            [4,4],
+            [5,4],
+            [6,4],
+            [7,4],
+            [8,4],
+            [9,4]
+        ],
+        bricks: [
+            [4,0],
+            [8,3],
+            [1,6],
+            [2,6],
+            [6,6],
+            [8,6]
+        ],
+        start : [
+            [0,3]
+        ],
+        startType : 'startHorizontal',
+        inventoryLoad : ['quadShoot', 'curveLeftUp', 'curveRightUp', 'tSplitUpDownRight', 'tSplitLeftRightUp']
     }
+    // level10: {
+    //     heights: 7,
+    //     widths: 13,
+    //     walls: [
+    //         [2,4],
+    //         [2,5],
+    //         [0,0]
+    //     ],
+    //     bricks: [
+    //         [4,1],
+    //         [11,1],
+    //         [2,2],
+    //         [3,3],
+    //         [10,3],
+    //         [3,6],
+    //         [11,6]
+    //     ],
+    //     start : [
+    //         [2,0]
+    //     ],
+    //     startType : 'startVertical',
+    //     inventoryLoad : ['quadShoot', 'curveLeftUp', 'curveRightUp', 'tSplitUpDownLeft', 'quadShoot']
+    // }
 }
 
 function increaseLevel() {
     lvlCount++;
-    levels = 'level' + lvlCount;
-    createGrid(levels);
+    if(lvlCount == 10) {
+        window.location.href = 'win.html';
+    } else {
+        levels = 'level' + lvlCount;
+        levelCounter.innerHTML = 'Level ' + lvlCount;
+        createGrid(levels);
+    }
 }
 
 function createGrid(levels) {
@@ -196,9 +328,21 @@ function createGrid(levels) {
     })
 
     clickAndDrop();
+    inventoryMargin();
+
 }   
 
+function inventoryMargin() {
+    if(inventory.childNodes.length >= 3) {
+        let invenStyle = inventory.querySelectorAll('div');
+        invenStyle.forEach(elem => {
+            elem.style.margin = '10px';
+        })
+    }
+}
+
 createGrid(levels);
+
 
 resetButton.addEventListener('click', function() {
     createGrid(levels);
@@ -211,6 +355,9 @@ function clickAndDrop() {
         elem.addEventListener('click', function(){
             piece = elem;
             clicked = true;
+            pickupSfx.play();
+            inventory.childNodes.forEach(e => { e.classList.remove('pieceSelected'); });
+            piece.classList.add('pieceSelected');
         });
     });
 
@@ -220,8 +367,10 @@ function clickAndDrop() {
             elem.addEventListener('click', function() {
                 if(elem.classList.contains('tile') && clicked && !started) {
                     elem.className = ' ';
+                    piece.classList.remove('pieceSelected');
                     elem.classList.add(piece.className)
-    
+                    placeSfx.play();
+                    
                     piece.remove();
                     clicked = false;
                 }
@@ -235,7 +384,9 @@ function clickAndDrop() {
 const startButton = document.getElementById('startButton');
 
 startButton.addEventListener('click', function() {
-    started = true;
+    bgMusic.play();
+    if(started == false) {
+        started = true;
     for(let j = 0; j < gridCon.childNodes.length; j++){
         let elem = gridCon.childNodes[j];
         let movementUp = j;
@@ -245,6 +396,7 @@ startButton.addEventListener('click', function() {
                 let movement = i;
                 let movementL = i;
                 elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+                explosionSfx.play();
                 movement++;
                 movementL--;
                 movementDown++;
@@ -255,6 +407,7 @@ startButton.addEventListener('click', function() {
             } else if(elem.childNodes[i].classList.contains('startVertical')) {
                 let movement = i;
                 elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+                explosionSfx.play();
                 movementDown++;
                 movementUp--;
 
@@ -264,18 +417,25 @@ startButton.addEventListener('click', function() {
 
                 downFunc(elem, movement, gridCon, movementDown, movementUp);
                 upFunc(elem, movement, gridCon, movementDown, movementUp);
+                }
             }
         }
     }
 });
 
 function rightFunc(elem, movement, direction, vertElem, down, up) {
+    // if(elem.childNodes[movement].hasChildNodes()){
+    //     elem.childNodes[movement].innerHTML = ' ';
+    // }
+
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tile')) {
+
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             movement++;
             rightFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('brick')) {
@@ -283,11 +443,12 @@ function rightFunc(elem, movement, direction, vertElem, down, up) {
             elem.childNodes[movement].classList.remove('brick');
             elem.childNodes[movement].classList.add('tile');
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             movement++;
 
             checkBricks();
             rightFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
+        }, 300)
     }   
 
     // 'curveRightDown', 'curveRightUp', 'quadShoot', 'curveLeftUp', 'curveLeftDown'
@@ -295,78 +456,89 @@ function rightFunc(elem, movement, direction, vertElem, down, up) {
 
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
 
             upFunc(elem, movement, vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('curveLeftDown')) {
 
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             // movement++;
             
             // elem, movement, vertElem, down
             downFunc(elem, movement, vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('quadShoot')) {
 
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             downFunc(elem, movement, vertElem, down, up);
             upFunc(elem, movement, vertElem, down, up);
             movement++;
             rightFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitLeftRightUp')) {
 
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             upFunc(elem, movement, vertElem, down, up);
             movement++;
             rightFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitUpDownLeft')) {
 
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             upFunc(elem, movement, vertElem, down, up);
             downFunc(elem, movement, vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitLeftRightDown')) {
 
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             downFunc(elem, movement, vertElem, down, up);           
             movement++;
             rightFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
+        }, 300)
     }
     
 }
 
 
 function leftFunc(elem, movement, direction, vertElem, down, up) {
+    // if(elem.childNodes[movement].hasChildNodes()){
+    //     elem.childNodes[movement].innerHTML = ' ';
+    // }
+    
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tile')) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             movement--;
             leftFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('brick')) {
@@ -374,6 +546,7 @@ function leftFunc(elem, movement, direction, vertElem, down, up) {
             elem.childNodes[movement].classList.remove('brick');
             elem.childNodes[movement].classList.add('tile');
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             setTimeout(function(){
                 // elem.childNodes[movement].innerHTML = '';
             }, 200);
@@ -381,78 +554,89 @@ function leftFunc(elem, movement, direction, vertElem, down, up) {
 
             checkBricks();
             leftFunc(elem, movement, 'horizontal', vertElem, down, up);
-        }, 500)
+        }, 300)
     }   
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('curveRightUp')) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             upFunc(elem, movement, vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('curveRightDown')) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             downFunc(elem, movement, vertElem, down, up);
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('quadShoot')) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             downFunc(elem, movement, vertElem, down, up);
             upFunc(elem, movement, vertElem, down, up);
             movement--;
             leftFunc(elem, movement, 'horizontal', vertElem, down, up);
 
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitLeftRightDown')) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             downFunc(elem, movement, vertElem, down, up);
             movement--;
             leftFunc(elem, movement, 'horizontal', vertElem, down, up);
 
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitLeftRightUp')) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             upFunc(elem, movement, vertElem, down, up);
             movement--;
             leftFunc(elem, movement, 'horizontal', vertElem, down, up);
 
-        }, 500)
+        }, 300)
     }
 
     if(direction == 'horizontal' && elem.childNodes[movement].classList.contains('tSplitUpDownRight')) {
         setTimeout(function(){
             elem.childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             upFunc(elem, movement, vertElem, down, up);
             downFunc(elem, movement, vertElem, down, up);
 
-        }, 500)
+        }, 300)
     }
 
 }
 
 function downFunc(elem, movement, vertElem, down, up) {
+    // if(vertElem.childNodes[down].childNodes[movement].hasChildNodes()){
+    //     vertElem.childNodes[down].childNodes[movement].innerHTML = ' ';
+    // }
+
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('tile')) {
         setTimeout(function(){
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             down++;
             downFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('brick')) {
@@ -460,17 +644,19 @@ function downFunc(elem, movement, vertElem, down, up) {
             vertElem.childNodes[down].childNodes[movement].classList.remove('brick');
             vertElem.childNodes[down].childNodes[movement].classList.add('tile');
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             down++;
 
             checkBricks();
                 
             downFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('curveLeftUp')) {
         setTimeout(function(){
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             movement--;
 
             let downClone = down;
@@ -478,23 +664,25 @@ function downFunc(elem, movement, vertElem, down, up) {
             up = downClone;
 
             leftFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('curveRightUp')) {
         setTimeout(function(){
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             let downClone = down;
             downClone--;
             up = downClone;
             movement++;
             rightFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('quadShoot')) {
         setTimeout(function(){
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             let downClone = down;
             downClone--;
@@ -506,7 +694,7 @@ function downFunc(elem, movement, vertElem, down, up) {
             movement++;
             down++;
             downFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('tSplitUpDownLeft')) {
@@ -515,32 +703,36 @@ function downFunc(elem, movement, vertElem, down, up) {
             downClone--;
             up = downClone;
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             movement--;
             leftFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
             movement++;
             down++;
             downFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('tSplitUpDownRight')) {
         setTimeout(function(){
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             let downClone = down;
             downClone--;
             up = downClone;
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             movement++;
             rightFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
             movement--;
             down++;
             downFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[down].childNodes[movement].classList.contains('tSplitLeftRightUp')) {
         setTimeout(function(){
             vertElem.childNodes[down].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             let downClone = down;
             downClone--;
             up = downClone;
@@ -548,20 +740,24 @@ function downFunc(elem, movement, vertElem, down, up) {
             rightFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
             movement -= 2;
             leftFunc(vertElem.childNodes[down], movement, 'horizontal', vertElem, down, up);
-        }, 500);
+        }, 300);
     }
 }
 
 function upFunc(elem, movement, vertElem, down, up) {
+    // if(vertElem.childNodes[up].childNodes[movement].hasChildNodes()){
+    //     vertElem.childNodes[up].childNodes[movement].innerHTML = ' ';
+    // }
     
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('tile')) {
         setTimeout(function(){
             if(vertElem.childNodes[up].childNodes[movement].classList.contains('tile')) {
                 vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+                explosionSfx.play();
             }
             up--;
             upFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('brick')) {
@@ -569,18 +765,20 @@ function upFunc(elem, movement, vertElem, down, up) {
             vertElem.childNodes[up].childNodes[movement].classList.remove('brick');
             vertElem.childNodes[up].childNodes[movement].classList.add('tile');
             vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
             up--;
 
             checkBricks();
 
             upFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('quadShoot')) {
         setTimeout(function(){
 
             vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             let upClone = up;
             upClone++;
@@ -593,37 +791,40 @@ function upFunc(elem, movement, vertElem, down, up) {
             up--;
             upFunc(elem, movement, gridCon, down, up);
 
-        }, 500);
+        }, 300);
     }
         //,, , , 'tSplitLeftRightUp', , 'quadShoot'
 
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('curveRightDown')) {
         setTimeout(function(){
             vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             let upClone = up;
             upClone++;
             down = upClone;
             movement++;
             rightFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('curveLeftDown')) {
         setTimeout(function(){
             vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             let upClone = up;
             upClone++;
             down = upClone;
             movement--;
             leftFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('tSplitUpDownLeft')) {
         setTimeout(function(){
             vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             let upClone = up;
             upClone++;
@@ -633,12 +834,13 @@ function upFunc(elem, movement, vertElem, down, up) {
             movement++;
             up--;
             upFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('tSplitUpDownRight')) {
         setTimeout(function(){
             vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             let upClone = up;
             upClone++;
@@ -648,12 +850,13 @@ function upFunc(elem, movement, vertElem, down, up) {
             movement--;
             up--;
             upFunc(elem, movement, gridCon, down, up);
-        }, 500);
+        }, 300);
     }
 
     if(vertElem.childNodes[up].childNodes[movement].classList.contains('tSplitLeftRightDown')) {
         setTimeout(function(){
             vertElem.childNodes[up].childNodes[movement].appendChild(explosion.cloneNode(true));
+            explosionSfx.play();
 
             let upClone = up;
             upClone++;
@@ -662,7 +865,7 @@ function upFunc(elem, movement, vertElem, down, up) {
             rightFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
             movement -= 2;
             leftFunc(vertElem.childNodes[up], movement, 'horizontal', vertElem, down, up);
-        }, 500);
+        }, 300);
     }
 }
 
