@@ -48,6 +48,9 @@ let clicked = false;
 let started = false;
 let conditionNeg = false;
 
+let firstClick = true;
+let attempt = 0;
+
 // IMPORTANT: coords start at 0!!!! End 1 number before max!!!
 // IMPORTANT 2: you must include all elements even if they are empty (ex. walls: [])
 const level = {
@@ -138,6 +141,7 @@ const level = {
             [3,4]
         ],
         bricks: [
+            [0,0],
             [4,0],
             [6,0],
             [2,4],
@@ -250,6 +254,9 @@ function increaseLevel() {
     lvlCount++;
     if(lvlCount == 10) {
         window.location.href = 'win.html';
+        localStorage.setItem('time',timer.innerText);
+        localStorage.setItem('attempt', attempt);
+
     } else {
         levels = 'level' + lvlCount;
         levelCounter.innerHTML = 'Level ' + lvlCount;
@@ -884,4 +891,38 @@ function checkBricks() {
             increaseLevel();
         }, 500)
     }
+}
+
+let timer = document.getElementById('timer');
+let seconds = document.getElementById('seconds');
+let minutes = document.getElementById('minutes');
+let totalSeconds = 0;
+
+document.querySelector('body').addEventListener('click', function() {
+    if(firstClick) {
+        setInterval(setTime, 1000);
+        firstClick = false;
+        attempt = localStorage.getItem('attempt');
+        attempt++;
+    }
+})
+
+function setTime() {
+    ++totalSeconds;
+    seconds.innerHTML = pad(totalSeconds % 60);
+    minutes.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    }
+}
+
+if(!localStorage.getItem('timeArray')) {
+    localStorage.setItem('attempt', attempt);
+    localStorage.setItem('timeArray', JSON.stringify(['60:00']));
 }

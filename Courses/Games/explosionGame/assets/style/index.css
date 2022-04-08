@@ -94,6 +94,7 @@
     width: 80px;
     height: 80px;
     background: url('../bigtiles.png') -80px -160px;
+    cursor: pointer;
 }
 
 .wall {
@@ -205,7 +206,7 @@ body {
 
 .center {
     width: 100%;
-    height: calc(100vh - 16px);
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -213,6 +214,42 @@ body {
 }
 
 p.win {
-    font-size: 135px;
-    color: #8dc156
+    font-size: 80px;
+    color: #8dc156;
+    margin: 15px;
+}
+
+#timer {
+    font-size: 36px;
+    color: white;
+    text-align: center;
+}
+
+.leaderboard {
+    background-image: url("../leaderboard.png");
+    height: 510px;
+    width: 810px;
+}
+
+.leaderboard .first {
+    padding-top: 60px;
+    padding-left: 70px;
+    height: 51px;
+}
+
+.leaderboard div {
+    padding-top: 0px;
+    padding-left: 70px;
+    height: 49px;
+    display: flex;
+    color: #fff;
+}
+
+.leaderboard div p:first-child {
+    width: 520px;
+}
+
+.leaderboard div p:last-child {
+    width: 210px;
+    text-align: center;
 }
