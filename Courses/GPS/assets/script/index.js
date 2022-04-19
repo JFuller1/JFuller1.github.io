@@ -1,11 +1,17 @@
+'use strict';
+
 function showLocation(position) {
     const {longitude, latitude, accuracy} = position.coords;
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         center: [longitude, latitude],
-        zoom: 17
+        zoom: 17,
+        interactive: false
     })
+
+    let markerHtml = document.createElement('div');
+    markerHtml.className = 'marker';
 
     const userPos = new mapboxgl.Marker(markerHtml).setLngLat([longitude, latitude]).addTo(map);
 }
