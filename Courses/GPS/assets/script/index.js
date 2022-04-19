@@ -6,7 +6,7 @@ function showLocation(position) {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         center: [longitude, latitude],
-        zoom: 17,
+        zoom: 18,
         interactive: false
     })
 
@@ -20,7 +20,7 @@ function errorHandler() {
     console.log('Nope');
 }
 
-navigator.geolocation.getCurrentPosition(showLocation, errorHandler, {enableHighAccuracy: true});
+navigator.geolocation.watchPosition(showLocation, errorHandler, {enableHighAccuracy: true});
 
 mapboxgl.accessToken = `pk.eyJ1IjoiemFibG9vIiwiYSI6ImNsMXdnYTU5bjExNjgza3FmajI5bmhod2UifQ.qJdSGaRsneTmXPttoiPG3Q`;
 
