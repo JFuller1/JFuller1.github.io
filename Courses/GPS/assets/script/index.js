@@ -23,3 +23,13 @@ function errorHandler() {
 navigator.geolocation.getCurrentPosition(showLocation, errorHandler, {enableHighAccuracy: true});
 
 mapboxgl.accessToken = `pk.eyJ1IjoiemFibG9vIiwiYSI6ImNsMXdnYTU5bjExNjgza3FmajI5bmhod2UifQ.qJdSGaRsneTmXPttoiPG3Q`;
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// We listen to the resize event
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
