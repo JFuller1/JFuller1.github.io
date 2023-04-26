@@ -1,3 +1,5 @@
+A home to most of the projects completed in the first year of my Software Development diploma, in which we were covering web development.
+
 ### Projects
 
 - [Landing Page Assignment // Assignment 3](https://jfuller1.github.io/Courses/Intro-To-WebDev/Jaeden-Fuller-Assignment-3/index.html)
